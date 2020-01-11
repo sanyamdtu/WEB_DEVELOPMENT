@@ -1,0 +1,16 @@
+*{
+    background-color: aqua;
+}
+.box{
+    margin: 20px;
+    padding: 10px;
+}
+#div1{
+    background-color: brown;
+}
+#div2{
+    background-color: chartreuse;
+}
+#div3{
+    background-color: darksalmon;
+}

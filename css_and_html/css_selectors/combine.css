@@ -1,0 +1,27 @@
+* {
+    background-color: chartreuse;
+}
+
+ol {
+    color: red;
+}
+
+ul {
+    color: royalblue;
+}
+
+ol li {
+    color: beige;
+}
+
+ul li {
+    color: darkorchid;
+}
+
+ol>ul {
+    color: gold;
+}
+
+ul>li {
+    color: magenta;
+}

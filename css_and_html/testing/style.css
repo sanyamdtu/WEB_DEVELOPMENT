@@ -1,0 +1,23 @@
+*{
+    color:black;
+    font-size: 74px;
+}   
+body{
+    margin-top: 30px;
+}
+#p1{
+    font-size: 30px;    
+}
+#p2{
+    font-family: cursive;
+}
+#p3{
+    margin-left: 20px;
+}
+.osma{
+    background-color:lightblue  ;
+
+}
+.bigpara{
+    color: yellow;
+}
