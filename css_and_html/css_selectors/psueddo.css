@@ -1,0 +1,11 @@
+ul ul {
+    display: none;
+}
+
+li:hover {
+    color: red;
+}
+
+li:hover>ul {
+    display: block;
+}
