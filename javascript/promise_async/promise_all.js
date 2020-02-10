@@ -42,10 +42,25 @@ function upload(resizedfilename) {
         }, 3000);
     })
 }
-let start = download("ftp:./bytenet/friends/profilepic.yhe")
-    .then(resize)
-    .then(upload) //then function is used by rerurning the promise and it is used
-    //the  
-    .catch(function(err) {
-        console.error(err);
+Promise.all([
+        download("http:dragaonballz/goku.png"), //as thiswas an array of objects for up
+        //-uploading the file and resizing etc,.
+        //the promise .all is uesd to create an array of promise even if ne promise is \
+        //not resolved then the code will show an error all should be working exactly
+        // resolved  
+        download("http:dragaonballz/vegeta.png"),
+        download("http:dragaonballz/gohan.png")
+    ])
+    .then(function(downloadvalues) {
+        return Promise.all(downloadvalues.map(resize))
+            //the return promise.all line returns the values of then function of
+            //the values of the promise is 
+    })
+    .then(function(resizevalues) {
+        return Promise.all(
+            resizevalues.map(upload)
+        )
+    })
+    .then(function(uploadvalues) {
+        console.log(uploadvalues)
     })
