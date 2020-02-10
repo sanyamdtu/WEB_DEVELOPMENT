@@ -7,5 +7,6 @@ function awesome() {
 }
 module.exports = {
     awesome, //the awesome function is exported in the file using the require function 
-    //it is used to get the 
+    //it is used to import the library like the standard library in cpp
+    //like wise this is uesd to get import the object of the file
 }
