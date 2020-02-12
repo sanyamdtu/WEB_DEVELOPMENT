@@ -1,0 +1,11 @@
+{
+  "name": "another_sample_manager",
+  "version": "1.0.0",
+  "description": "just a sample npm package manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "sanyam use it"
+  },
+  "author": "sanyam srivastava",
+  "license": "ISC"
+}

@@ -6,13 +6,27 @@ fs.readFile(__dirname + '/input.txt', (err, data) => {
     var arr = data.toString().split("\r\n"); //supposedly the log files get this character 
     //in case of opening as it shows something up there
     console.log(arr)
+        // var visited = []
+        // arr.map((sample) => {
+        //     arr.map((word) => {
+        //         if (!(sample === word)) {
+        //             visited.push(sample)
+        //         } else {
+        //             arr.pop(word);
+        //         }
+        //     })
+        // })
     var visited = []
-    arr.map((sample) => {
-        arr.map((word) => {
-            if (!(sample === word)) {
-                visited.push(sample)
+    arr.map((element) => {
+        var word = element;
+        var count = 0;
+        arr.pop(element);
+        arr.map((sample) => {
+            if (word === sample) {
+                count++;
+                arr.pop
             } else {
-                arr.pop(word);
+
             }
         })
     })
