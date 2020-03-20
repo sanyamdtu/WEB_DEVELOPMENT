@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="cssinheritance.css">
 </head>
+
 <body>
     <div class="cl1" id="id1">
         DIV 1
@@ -15,4 +17,64 @@
         DIV 2
     </div>
 </body>
+
 </html>
+<!--
+     It doesn't matter which order the classes are listed in the HTML element.
+However, the order of the class declarations in the <style> section is what is
+important. The second declaration will always take precedence over the first.
+Because .blue-text is declared second, it overrides the attributes of .pink-text
+
+Use an inline style to try to make our h1 element white.
+ Remember, in line styles look like this:
+
+<h1 style="color: green;">
+
+Leave the blue-text and pink-text classes on your h1 element.
+
+id declarations override class declarations, regardless of where they are
+declared in your style element CSS.
+
+inline styles will override all the CSS declarations in your style element.
+In many situations, you will use CSS libraries. These may accidentally override 
+your own CSS. So when you absolutely need to be sure that an element has 
+specific CSS, you can use !important
+
+Let's go all the way back to our pink-text class declaration. Remember that 
+our pink-text class was overridden by subsequent class declarations, 
+id declarations, and inline styles.
+
+Let's add the keyword !important to your pink-text element's color 
+declaration to make 100% sure that your h1 element will be pink.
+
+An example of how to do this is:
+
+color: red !important;
+
+To create a CSS variable, you just need to give it a name with two hyphens 
+in front of it and assign it a value like this:
+
+--penguin-skin: gray;
+This will create a variable named --penguin-skin and assign it the 
+value of gray. Now you can use that variable elsewhere in your CSS to 
+change the value of other elements to gray.
+
+
+After you create your variable, you can assign its value to other CSS 
+properties by referencing the name you gave it.
+
+background: var(--penguin-skin);
+This will change the background of whatever element you are targeting 
+to gray because that is the value of the --penguin-skin variable.
+Note that styles will not be applied unless the variable names
+are an exact match.
+
+
+After you create your variable, you can assign its value to other CSS
+ properties by referencing the name you gave it.
+
+background: var(--penguin-skin);
+This will change the background of whatever element you are
+targeting to gray because that is the value of the --penguin-skin variable.
+ Note that styles will not be applied unless the variable names are an exact match.
+-->

@@ -1,0 +1,41 @@
+.text-box {
+    border: solid grey;
+    border-width: 20px;
+    margin: 20px auto;
+    width: 65%;
+}
+
+.article {
+    margin: 1%;
+    padding: 3%;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.date {
+    color: lightseagreen;
+    font-size: x-large;
+    font-weight: 600;
+    font-family: monospace;
+    text-transform: uppercase;
+    word-spacing: 5px;
+    margin: 5%;
+}
+
+.heading {
+    margin: 2%;
+    height: 50px;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.para1 {
+    border-left: solid grey;
+    border-width: 5px;
+    margin: 3px;
+}
+
+.para {
+    margin: 3px;
+}

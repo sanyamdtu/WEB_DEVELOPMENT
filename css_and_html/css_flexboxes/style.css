@@ -1,0 +1,23 @@
+#id1 {
+    display: flex;
+    /*
+    flex is used to create a display in which when the screen is resized 
+    the divs are  resized according to it the text gets wrapped
+
+    
+    
+    */
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item {
+    height: 10%;
+    width: 60%;
+    margin: 1%;
+    padding: 1%;
+    background-color: yellow;
+    border: yellowgreen;
+    border-style: solid;
+    text-align: center;
+}

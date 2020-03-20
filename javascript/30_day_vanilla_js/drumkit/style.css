@@ -1,0 +1,16 @@
+* {
+    background-color: indianred;
+}
+
+.d {
+    font-size: large;
+    text-align: center;
+    color: aqua;
+    width: 20%;
+    box-sizing: border-box;
+    border: 10px, black;
+}
+
+#A {
+    font-size: xx-large;
+}

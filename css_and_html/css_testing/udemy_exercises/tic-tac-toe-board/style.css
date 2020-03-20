@@ -1,0 +1,45 @@
+body {
+    font-size: large;
+}
+
+.heading {
+    text-align: center;
+    margin: 10%;
+    font-size: 120%;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+}
+
+.table-row {
+    border-style: solid black;
+    border-width: 10px;
+}
+
+.table-column {
+    border: solid black;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.row1 {
+    border-top: 0;
+}
+
+.row3 {
+    border-bottom: 0px;
+}
+
+.column1 {
+    border-left: 0px;
+}
+
+.column3 {
+    border-right: 0px;
+}

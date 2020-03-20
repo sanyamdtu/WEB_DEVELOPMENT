@@ -1,0 +1,60 @@
+body {
+    background-color: #909090;
+}
+
+.upper-box {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: xx-large;
+    padding: 3%;
+    font-weight: bold;
+}
+
+.upper-text {
+    margin: 1%;
+    padding: 2%;
+    font-size: xx-large;
+    color: black;
+}
+
+.lower-text {
+    font-weight: normal;
+}
+
+.image-box {
+    background-color: white;
+}
+
+.image {
+    align-items: center;
+    width: 84%;
+    height: 40%;
+    margin: 7%
+}
+
+#image-lower-text {
+    font-size: x-large;
+    text-align: center;
+}
+
+#list-box {
+    background-color: wheat;
+    text-align: center;
+    font-size: xx-large;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#quote {
+    text-align: right;
+    padding-right: 0%;
+}
+
+#list-name {
+    font-weight: bold;
+}
+
+#list-item {
+    text-align: left;
+    font-size: x-large;
+}
