@@ -1,0 +1,1 @@
+eq.query.id, req.query.name, req.query.age
