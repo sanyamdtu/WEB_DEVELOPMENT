@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .purple {
+            background-color: purple;
+        }
+        
+        .yellow {
+            color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Color Changer</h1>
+            <p class="lead">This is a simple webpage which will change its colour on clicking it.</p>
+            <hr class="my-4">
+            <p>It does not do much :-| </p>
+            <button type="radio">Change it</a>
+        </div>
+    </div>
+</body>
+<script>
+    const h1 = document.querySelector("h1")
+    const div_ = document.querySelectorAll("div")[1];
+    const btn = document.querySelector("button");
+    // function func(value = true) {
+    // if (value) {
+    //     div_.classList.add("purple")
+    // } else {
+    //     div_.classList.add('yellow')
+    // }
+    //     setTimeout(func(!value), 2000);
+    // }
+    // func(true);
+    // object.onload = function(value = true) {
+
+    //     if (value) {
+    //         div_.classList.add("purple")
+    //     } else {
+    //         div_.classList.add('yellow')
+    //     }
+
+    // };
+    // }
+    btn.addEventListener('click', () => {
+        div_.classList.add("purple")
+        //document.body.style.background - color("purple");
+        console.log("you clicked me")
+    })
+</script>
+</html>

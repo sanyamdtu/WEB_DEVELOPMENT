@@ -1,0 +1,1 @@
+ver.set('view engine', 'ejs')

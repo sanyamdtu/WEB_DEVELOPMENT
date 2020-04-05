@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: x-large;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #boxes {
+            width: 70px;
+            height: 70px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        pick a colour
+    </h1>
+    <div class="container">
+
+    </div>
+</body>
+<Script>
+    const div = document.querySelector(".container")
+    const color = ["red", "purple", "green", "violet", "yellow", "blue", "orange"]
+    for (let c of color) {
+        var box = document.createElement("div")
+        box.style.backgroundColor = c;
+        box.id = "boxes"
+        box.addEventListener("click", () => {
+            var h1 = document.querySelector('h1')
+            h1.style.color = c;
+        })
+        div.appendChild(box)
+    }
+</Script>
+
+</html>

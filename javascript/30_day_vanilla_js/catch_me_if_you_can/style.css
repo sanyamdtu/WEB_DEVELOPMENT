@@ -1,0 +1,48 @@
+body {
+    background-color: #C8FF02;
+}
+
+.heading {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    /* display: flex;
+    flex-direction: row;
+    word-wrap: normal; */
+    background-color: #F4FFAC;
+}
+
+.closed_area {
+    position: relative;
+    background: #00B1B7;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.inner_area {
+    position: absolute;
+    background: #0D4DDC;
+    border-radius: 50%;
+    right: 20px;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    /* no margin, no width, they get automatically calculated*/
+}
+
+.catch {
+    width: 30px;
+    padding-bottom: 30px;
+    position: absolute;
+    margin: auto;
+    background-color: darkorange;
+    border-radius: 50%;
+    left: 120px;
+    top: 120px;
+    bottom: 120px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            height: 70px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button">Try to click me</button>
+</body>
+<script>
+    const btn = document.querySelector("button")
+
+    function func() {
+        const h = Math.floor(Math.random() * (window.innerHeight))
+        const w = Math.floor(Math.random() * (window.innerWidth))
+            // btn.style.left = ""
+            // btn.style.top = "${}";
+        btn.style.marginTop = `${h}px`
+        btn.style.marginLeft = `${w}px`
+    }
+    btn.addEventListener("mouseover", func);
+    btn.addEventListener("click", () => {
+        console.log("you clicked me")
+    })
+</script>
+
+</html>
