@@ -2,7 +2,7 @@ var express = require('express')
 var route = express.Router()
 var sql_functions = require('../db')
 route.get('/display', (req, res) => {
-    var table = sql_functions.getdata()
+    sql_functions.getdata()
         .then((table) => {
             res.render('index', { db: table })
         })

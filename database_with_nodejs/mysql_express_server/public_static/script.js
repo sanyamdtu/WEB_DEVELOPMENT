@@ -11,19 +11,19 @@ $(() => {
         for (var data of persons) {
             table.append(
                 `<tr>
-                      <td>${persons.id}</td>
-                      <td>'${persons.name}'</td>
-                      <td>${persons.age}</td>
+                      <td>${data.Id}</td>
+                      <td>'${data.Name}'</td>
+                      <td>${data.Age}</td>
                     </tr>`
             )
         }
 
     }
-    $.get('/api/', (data) => {
+    $.get('/api/persons', (data) => {
         refresh_page(data);
     })
     submit.on("click", () => {
-        $.post("/api/add", {
+        $.post("/api/persons", {
             name: name_ip.val(),
             id: id_input.val(),
             age: age_ip.val()

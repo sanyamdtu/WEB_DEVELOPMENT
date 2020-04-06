@@ -1,8 +1,8 @@
 var express = require('express')
 var route = express.Router()
 var sql_functions = require('../db')
-route.get('/', (req, res) => {
-    var table = sql_functions.getdata()
+route.get('/persons/', (req, res) => {
+    sql_functions.getdata()
         .then((table) => {
             res.send(table)
         })
@@ -10,9 +10,9 @@ route.get('/', (req, res) => {
             res.send(err)
         })
 })
-route.post('/', (req, res) => {
+route.post('/persons/', (req, res) => {
     sql_functions.addata(req.body.number, req.body.name, req.body.age)
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/api/persons/'))
         .catch((err) => res.send(err))
 })
 module.exports = route

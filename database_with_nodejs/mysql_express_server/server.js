@@ -8,5 +8,4 @@ server.use(express.urlencoded({ extended: true }))
 server.use('/', express.static(path.join(__dirname + '/public_static')))
 server.use('/pages', route_pages)
 server.use('/api', route_api)
-
 server.listen(5656)
