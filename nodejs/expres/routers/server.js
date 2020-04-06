@@ -1,0 +1,6 @@
+var students = require('./std.js')
+var teacher = require('./teacher.js')
+var server = require('express')()
+server.use('/students', students)
+server.use('/teachers', teacher)
+server.listen(3434)
