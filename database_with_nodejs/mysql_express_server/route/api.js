@@ -1,16 +1,18 @@
 var express = require('express')
 var route = express.Router()
 var sql_functions = require('../db')
-route.get('/add', (req, res) => {
+route.get('/', (req, res) => {
     var table = sql_functions.getdata()
         .then((table) => {
-            res.render('index', { db: table })
+            res.send(table)
         })
         .catch((err) => {
-            res.render(err)
+            res.send(err)
         })
 })
-route.post('/add', (req, res) => {
+route.post('/', (req, res) => {
     sql_functions.addata(req.body.number, req.body.name, req.body.age)
-    res.redirect('/')
+        .then(() => res.redirect('/'))
+        .catch((err) => res.send(err))
 })
+module.exports = route

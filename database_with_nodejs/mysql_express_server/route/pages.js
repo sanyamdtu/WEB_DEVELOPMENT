@@ -16,5 +16,6 @@ route.get('/add', (req, res) => {
 })
 route.post('/add', (req, res) => {
     sql_functions.addata(req.body.number, req.body.name, req.body.age)
-    res.redirect('/')
+    res.redirect('/display')
 })
+module.exports = route
