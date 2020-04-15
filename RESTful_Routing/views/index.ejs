@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+    <div class="ui raised very padded text container segment">
+        <% for( let blog of blogs ) { %>
+            <div class="ui items">
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= blog.image %>" class="ui image">
+                    </div>
+                    <div class="content">
+                        <a class="header">
+                            <%=blog.title%>
+                        </a>
+                        <div class="meta">
+                            <span><%= blog.created.toDateString()%> </span>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <%= blog.body.substring(0,100) %>...
+                            </p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui teal button" href="/blogs/<%= blog._id %> ">Click To Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <% } %>
+            </div>
+            <%- include("partials/footer") %>

@@ -1,0 +1,17 @@
+i.icon {
+    font-size: 2em;
+}
+
+.container {
+    margin: auto;
+    padding: auto;
+}
+
+#Delete {
+    display: inline;
+}
+
+.content {
+    width: 66%;
+    margin: auto;
+}
