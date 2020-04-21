@@ -1,0 +1,11 @@
+.card .card-img-top {
+    height: 25em;
+}
+
+.display-4 {
+    padding: 9px;
+}
+
+form .btn-danger {
+    display: inline;
+}
