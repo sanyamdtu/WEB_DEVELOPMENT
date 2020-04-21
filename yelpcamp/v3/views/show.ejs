@@ -6,4 +6,15 @@
     <p>
         <%= camp.desc %>
     </p>
+    <br>
+    <p>
+        <%for(var comment of  camp.comments) {%>
+            <p>
+                <strong><%= comment.author %> </strong>
+                <p>
+                    <%= comment.title %>
+                </p>
+            </p>
+            <% } %>
+    </p>
     <%-include('partials/footer'); -%>

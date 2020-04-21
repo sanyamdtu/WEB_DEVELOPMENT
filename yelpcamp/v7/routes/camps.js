@@ -1,6 +1,6 @@
 var camps_route = require("express").Router(),
     camps_with_info_db = require("../models/camps")
-camps_route.get('/camp', (req, res, next) => {
+camps_route.get('/', (req, res, next) => {
     camps_with_info_db.find({}, (err, camps) => {
         if (err)
             console.log(err)
@@ -8,7 +8,7 @@ camps_route.get('/camp', (req, res, next) => {
             res.render("camps", { camps: camps })
     })
 })
-camps_route.post('/camp', (req, res) => {
+camps_route.post('/', (req, res) => {
     camps_with_info_db.create({
         name: req.body.name,
         image: req.body.url,
@@ -23,10 +23,10 @@ camps_route.post('/camp', (req, res) => {
         res.redirect('/camp')
     })
 })
-camps_route.get('/camp/new', (req, res) => {
+camps_route.get('/new', (req, res) => {
     res.render("new")
 })
-camps_route.get('/camp/:id', (req, res) => {
+camps_route.get('/:id', (req, res) => {
     camps_with_info_db.findById(req.params.id).populate("comments").exec((err, camp) => {
         if (err)
             console.log(err)

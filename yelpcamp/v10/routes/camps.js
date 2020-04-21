@@ -1,5 +1,6 @@
 var camps_route = require("express").Router(),
-    camps_with_info_db = require("../models/camps")
+    camps_with_info_db = require("../models/camps"),
+    middlewares = require("../middlewares/index")
 camps_route.get('/', (req, res, next) => {
     camps_with_info_db.find({}, (err, camps) => {
         if (err)
@@ -24,7 +25,7 @@ camps_route.post('/', (req, res) => {
             res.redirect('/camp')
     })
 })
-camps_route.get('/new', isloggedin, (req, res) => {
+camps_route.get('/new', middlewares.isloggedin, (req, res) => {
     res.render("new")
 })
 camps_route.get('/:id', function(req, res) {
@@ -54,7 +55,7 @@ camps_route.put("/:id", function(req, res) {
             res.redirect("/camp/" + camp._id)
     })
 })
-camps_route.get("/:id/edit",[isloggedin,check_camp_ownership],(req, res) => {
+camps_route.get("/:id/edit", [middlewares.isloggedin, middlewares.check_camp_ownership], (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)
@@ -62,26 +63,10 @@ camps_route.get("/:id/edit",[isloggedin,check_camp_ownership],(req, res) => {
             res.render("camp_edit", { camp: camp })
     })
 })
-camps_route.delete("/:id",[isloggedin,check_camp_ownership],(req, res) => {
+camps_route.delete("/:id", [middlewares.isloggedin, middlewares.check_camp_ownership], (req, res) => {
     camps_with_info_db.findByIdAndRemove(req.params.id, (err, camp) => {
         res.redirect("/camp")
     })
 })
-
-function check_camp_ownership(req,res,next) {
-    camps_with_info_db.findById(req.params.id,(err,camp)=>{
-    if(req.user._id.equals(camp.author.id))
-        next();
-    else
-     res.redirect("back")
-    })
-}
-
-function isloggedin(req, res, next) {
-    if (req.isAuthenticated())
-        next()
-    else
-        res.redirect("/login")
-}
 
 module.exports = camps_route

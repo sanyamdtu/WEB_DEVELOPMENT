@@ -1,8 +1,8 @@
 var comment_route = require("express").Router({ mergeParams: true }),
-    camps_with_info_db = require("../models/camps")
-comments_db = require("../models/comment")
-
-comment_route.get("/new", isloggedin, (req, res) => {
+    camps_with_info_db = require("../models/camps"),
+    comments_db = require("../models/comment"),
+    middlewares = require("../middlewares/index")
+comment_route.get("/new", middlewares.isloggedin, (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)
@@ -11,7 +11,7 @@ comment_route.get("/new", isloggedin, (req, res) => {
         }
     })
 })
-comment_route.post("/", isloggedin, (req, res) => {
+comment_route.post("/", middlewares.isloggedin, (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)
@@ -36,7 +36,7 @@ comment_route.post("/", isloggedin, (req, res) => {
     })
 
 })
-comment_route.get("/:comment_id/edit", [isloggedin, check_comment_ownership], (req, res) => {
+comment_route.get("/:comment_id/edit", [middlewares.isloggedin, middlewares.check_comment_ownership], (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)
@@ -64,7 +64,7 @@ comment_route.put("/:comment_id", (req, res) => {
             res.redirect("/camp/" + req.params.id)
     })
 })
-comment_route.delete("/:comment_id", [isloggedin, check_comment_ownership], (req, res) => {
+comment_route.delete("/:comment_id", [middlewares.isloggedin, middlewares.check_comment_ownership], (req, res) => {
     comments_db.findByIdAndDelete(req.params.comment_id, (err) => {
         if (err)
             console.log(err)
@@ -72,21 +72,4 @@ comment_route.delete("/:comment_id", [isloggedin, check_comment_ownership], (req
             res.redirect("/camp/" + req.params.id)
     })
 })
-
-function isloggedin(req, res, next) {
-    if (req.isAuthenticated())
-        next()
-    else {
-        res.redirect("/login")
-    }
-}
-
-function check_comment_ownership(req, res, next) {
-    comments_db.findById(req.params.comment_id, (err, comm) => {
-        if (req.user._id.equals(comm.author.id))
-            next();
-        else
-            res.redirect("back")
-    })
-}
 module.exports = comment_route

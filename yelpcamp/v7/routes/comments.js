@@ -1,8 +1,8 @@
-var comment_route = require("express").Router(),
+var comment_route = require("express").Router({ mergeParams: true }),
     camps_with_info_db = require("../models/camps")
 comments_db = require("../models/comment")
 
-comment_route.get("/camp/:id/comments/new", isloggedin, (req, res) => {
+comment_route.get("/new", isloggedin, (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)
@@ -11,7 +11,7 @@ comment_route.get("/camp/:id/comments/new", isloggedin, (req, res) => {
         }
     })
 })
-comment_route.post("/camp/:id/comments", isloggedin, (req, res) => {
+comment_route.post("/", isloggedin, (req, res) => {
     camps_with_info_db.findById(req.params.id, (err, camp) => {
         if (err)
             console.log(err)

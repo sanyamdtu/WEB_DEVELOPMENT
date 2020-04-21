@@ -2,6 +2,7 @@ var express = require("express")
 var server = express()
 var mongoose = require('mongoose')
 var camps_with_info_db = require("./models/camps")
+
 var seedDb = require("./seed")
 seedDb()
 server.set('views', __dirname + '/views')
@@ -38,10 +39,11 @@ server.get('/camp/new', (req, res) => {
     res.render("new")
 })
 server.get('/camp/:id', (req, res) => {
-    camps_with_info_db.findById(req.params.id, (err, camp) => {
+    camps_with_info_db.findById(req.params.id).populate("comments").exec((err, camp) => {
         if (err)
             console.log(err)
         else {
+            console.log(camp)
             res.render("show", { camp: camp })
         }
     })

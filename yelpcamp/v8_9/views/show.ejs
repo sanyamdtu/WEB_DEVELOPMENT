@@ -1,0 +1,52 @@
+<%- include('partials/header'); -%>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <img src="<%= camp.image %>" class="card-img-top img-fluid">
+                    <div>
+                        <h1 class="display-4">
+                            <%= camp.name %>
+                        </h1>
+                    </div>
+                    <div class="card-body ">
+                        <p class="card-text ">
+                            <%= camp.desc %>
+                        </p>
+
+                        <p>
+                            <em>submitted by:<%= camp.author.username %> </em>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="jumbotron">
+                    <a href="/camp/<%=camp._id%>/comments/new" class="btn btn-success float-right">Add comment</a>
+                    <br>
+                    <p>
+                        <%for(var comment of  camp.comments) {%>
+                            <p>
+
+                                <strong><%= comment.author.username %> :</strong>
+                                <span class="float-right">10 days ago</span>
+                                <%= comment.title %>
+                            </p>
+                            <hr>
+                            <% } %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-include('partials/footer'); -%>
