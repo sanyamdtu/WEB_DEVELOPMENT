@@ -35,8 +35,8 @@ passport.deserializeUser(user.deserializeUser())
 
 server.use((req, res, next) => {
     res.locals.current_user = req.user
-    res.locals.message = req.flash("error")
-    res.locals.message = req.flash("success")
+    res.locals.error = req.flash("error")
+    res.locals.success = req.flash("success")
     next()
         ////the middle wares for signed in and logout
 })

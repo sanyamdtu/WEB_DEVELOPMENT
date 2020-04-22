@@ -19,7 +19,7 @@ register_login_routes.post("/register", (req, res) => {
             return res.redirect("/register")
         } else {
             passport.authenticate("local")(req, res, () => {
-                req.flash("success", "You are registered and logged in")
+                req.flash("success", "Hello " + req.user.username + " ,you are registered and logged in")
                 res.redirect("/")
             })
         }
@@ -36,7 +36,7 @@ register_login_routes.get("/login", (req, res) => {
     res.render("login")
 })
 register_login_routes.post("/login", passport.authenticate("local", {
-    successRedirect: "back",
+    successRedirect: "/",
     failureRedirect: "/login"
 }))
 register_login_routes.get("/logout", (req, res) => {
