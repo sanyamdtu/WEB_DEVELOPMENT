@@ -5,13 +5,12 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+                    <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#up" aria-controls="home">Info</a>
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#bottom" aria-controls="messages">Comments</a>
+                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="/camp" aria-controls="settings">back</a>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" id="up">
                 <div class="card cards_show">
                     <img src="<%= camp.image %>" class="card-img-top img-fluid">
                     <div>
@@ -34,14 +33,13 @@
                     </div>
                 </div>
                 <br>
-                <div class="jumbotron">
+                <div class="jumbotron" id="bottom">
                     <a href="/camp/<%=camp._id%>/comments/new" class="btn btn-success float-right">Add comment</a>
                     <br>
                     <p>
                         <%for(var comment of  camp.comments) {%>
                             <p>
                                 <strong><%= comment.author.username %> :</strong>
-                                <span class="float-right">10 days ago</span>
                                 <%= comment.title %>
                                     <br>
                                     <a href="/camp/<%=camp._id%>/comments/<%= comment._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
