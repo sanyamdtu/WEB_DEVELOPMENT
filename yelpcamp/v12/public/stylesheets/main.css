@@ -1,11 +1,31 @@
-.card .card-img-top {
+.cards_show .card-img-top {
     height: 25em;
+}
+
+.cardy .card-img-top {
+    height: 15em;
 }
 
 .display-4 {
     padding: 9px;
 }
 
-form .btn-danger {
+.card-body .more_info {
+    text-align: center;
+}
+
+form {
     display: inline;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
 }

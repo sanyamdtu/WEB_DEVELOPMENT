@@ -16,19 +16,16 @@
         <div class="row">
             <% for(var camp of camps){ %>
                 <div class="col-md-3 col-sm-6 ">
-                    <div>
-                        <img src="<%=camp.image%>" class=" img-thumbnail ">
-                    </div>
-                    <div>
-                        <figcaption class="figure-caption text-dark">
-                            <p>
-                                <%=camp.name%>
+                    <div class="card cardy">
+                        <img src="<%= camp.image %>" class="card-img-top img-fluid">
+                        <div class="card-body">
+                            <p class="card-text more_info">
+                                <%=camp.name%><br>
+                                    <a href="/camp/<%=camp.id%>" class="btn btn-primary ">More Info</a>
                             </p>
-                            <p>
-                                <a href="/camp/<%=camp.id%>" class="btn btn-primary">More Info</a>
-                            </p>
-                        </figcaption>
+                        </div>
                     </div>
+
                 </div>
                 <% } %>
         </div>
