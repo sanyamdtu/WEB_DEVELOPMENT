@@ -38,13 +38,17 @@
         </div>
     </nav>
     <% if(error && error.length>0){ %>
-        <div class="alert alert-danger" role="alert">
-            <%= error %>
+        <div class="container">
+            <div class="alert alert-danger container" role="alert">
+                <%= error %>
+            </div>
         </div>
         <% } %>
 
             <% if (success && success.length>0) { %>
-                <div class="alert alert-success" role="alert">
-                    <%= success %>
+                <div class="container">
+                    <div class="alert alert-success container" role="alert">
+                        <%= success %>
+                    </div>
                 </div>
                 <% } %>
