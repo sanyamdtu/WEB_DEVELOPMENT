@@ -15,7 +15,7 @@ register_login_routes.post("/register", (req, res) => {
     user.register(new user({ username: req.body.username }), req.body.password, (err, user) => {
         if (err) {
             console.log(err)
-            req.flash("error", "You are not right")
+            req.flash("error", err.message)
             return res.redirect("/register")
         } else {
             passport.authenticate("local")(req, res, () => {
