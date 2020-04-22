@@ -36,7 +36,7 @@ register_login_routes.get("/login", (req, res) => {
     res.render("login")
 })
 register_login_routes.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/camp",
     failureRedirect: "/login"
 }))
 register_login_routes.get("/logout", (req, res) => {
