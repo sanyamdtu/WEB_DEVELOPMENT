@@ -9,7 +9,7 @@ camps_route.get('/', (req, res, next) => {
             res.render("camps", { camps: camps })
     })
 })
-camps_route.post('/', (req, res) => {
+camps_route.post('/', middlewares.isloggedin, (req, res) => {
     camps_with_info_db.create({
         name: req.body.name,
         image: req.body.url,
@@ -38,7 +38,7 @@ camps_route.get('/:id', function(req, res) {
     })
 })
 
-camps_route.put("/:id", function(req, res) {
+camps_route.put("/:id", [middlewares.isloggedin, middlewares.check_camp_ownership], function(req, res) {
     var new_camp_updated = {
         name: req.body.name,
         image: req.body.url,

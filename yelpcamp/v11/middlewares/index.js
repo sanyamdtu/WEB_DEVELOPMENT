@@ -11,10 +11,13 @@ midd.check_camp_ownership = function(req, res, next) {
 }
 
 midd.isloggedin = function(req, res, next) {
-    if (req.isAuthenticated())
+    if (req.isAuthenticated()) {
+        req.flash("success", "Successfully,signed you")
         next()
-    else
+    } else {
+        req.flash("error", "You messed it up")
         res.redirect("/login")
+    }
 }
 
 midd.check_comment_ownership = function(req, res, next) {

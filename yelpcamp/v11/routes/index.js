@@ -15,9 +15,11 @@ register_login_routes.post("/register", (req, res) => {
     user.register(new user({ username: req.body.username }), req.body.password, (err, user) => {
         if (err) {
             console.log(err)
+            req.flash("error", "You are not right")
             return res.redirect("/register")
         } else {
             passport.authenticate("local")(req, res, () => {
+                req.flash("success", "You are registered and logged in")
                 res.redirect("/")
             })
         }
@@ -34,19 +36,13 @@ register_login_routes.get("/login", (req, res) => {
     res.render("login")
 })
 register_login_routes.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "back",
     failureRedirect: "/login"
 }))
 register_login_routes.get("/logout", (req, res) => {
     req.logOut()
+    req.flash("success", "Logged you out")
     res.redirect("/")
 })
 
-function isloggedin(req, res, next) {
-    if (req.isAuthenticated())
-        next()
-    else {
-        res.redirect("/login")
-    }
-}
 module.exports = register_login_routes
