@@ -45,6 +45,6 @@ server.use("/", index_routes)
 server.use("/camp", camp_route)
 server.use("/camp/:id/comments", comments_route)
 
-server.listen(3434, () => {
+server.listen(process.env.port || 8080, () => {
     console.log("server has started")
 })
