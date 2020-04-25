@@ -10,7 +10,7 @@ var express = require("express"),
     method_override = require("method-override"),
     flash = require("connect-flash")
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect("mongodb://sanyam:sanyam2001@yelpcamp-shard-00-00-weo0n.mongodb.net:27017,yelpcamp-shard-00-01-weo0n.mongodb.net:27017,yelpcamp-shard-00-02-weo0n.mongodb.net:27017/test?ssl=true&replicaSet=Yelpcamp-shard-0&authSource=admin&retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true })
 
 server.set('views', __dirname + '/views')
 server.set('view engine', "ejs")
