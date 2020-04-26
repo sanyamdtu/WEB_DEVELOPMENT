@@ -5,9 +5,12 @@ var mongoose = require("mongoose")
 
 //database connected
 var db = require("./config/keys").mongo_url
-mongoose.connect(db)
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("database connected"))
     .catch((err) => console.log(err))
+
+//body parser
+app.use(express.urlencoded({ extended: true }))
 
 //ejs
 app.use(expressLayouts);
