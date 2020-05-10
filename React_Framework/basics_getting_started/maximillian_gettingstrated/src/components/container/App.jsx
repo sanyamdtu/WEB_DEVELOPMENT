@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Persons from './components/Persons/person';
+import Persons from '../Persons/Persons';
 import './App.css';
-import Radium,{styleRoot} from 'radium'
+import Cockpit from '../Cockpit/Cockpit'
 class App extends Component {
   state={
     persons:[
@@ -50,27 +50,27 @@ class App extends Component {
       backgroundColor:"white",
       font:"inherit",
       padding:"8px"
-      ,'@media screen and (orientation: landscape)': {
-        width: '35%',
-        textAlign: 'center',
-        paddingBottom: '500px',
-      }
     }
     let person=null;
     if(this.state.showpersons){
       person=<div>
         <Persons persons={this.state.persons}
-        deleteperrsons={this.state.deleteperrsons}
-        nameChangedHandler={this.state.nameChangedHandler}
+        deleteperrsons={this.deleteperrsons}
+        nameChangedHandler={this.nameChangedHandler}
         />
      </div>
     }
    return (
     <div className="App">
+      <Cockpit showpersons={this.state.showpersons}
+       persons={this.state.persons}
+       togglepersons={this.togglepersons}
+       style={style}
+       />
        {person}
     </div>
    );
   }
 }
 
-export default Radium(App);
+export default App;
