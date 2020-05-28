@@ -13,7 +13,6 @@ $(function() {
     socket.on("msg", (message) => {
         $("ul").append(`
               <li>${message}</li>
-            `);
-
+        `);
     })
 })

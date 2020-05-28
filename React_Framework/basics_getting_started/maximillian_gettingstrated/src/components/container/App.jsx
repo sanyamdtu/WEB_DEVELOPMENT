@@ -3,6 +3,10 @@ import Persons from '../Persons/Persons';
 import './App.css';
 import Cockpit from '../Cockpit/Cockpit'
 class App extends Component {
+  constructor (props){
+    super(props);
+    console.log("[app.js] construtor")
+  }
   state={
     persons:[
       {
@@ -16,6 +20,13 @@ class App extends Component {
     ],
     showpersons:false
   } 
+  static getDerivedStateFromProps(props,state){
+    console.log("[app.js] getderivedstatefromprops")
+    return state;
+  }
+  componentDidMount(){
+    console.log("[app.js] Componentdidmount")
+  }
   nameChangedHandler=(event,index)=>{
 
     const indiv_person=[...this.state.persons]
@@ -46,11 +57,13 @@ class App extends Component {
     this.setState({persons:TYersons})
   }
   render(){
+    console.log("app.js render")
     const style={
       backgroundColor:"white",
       font:"inherit",
       padding:"8px"
     }
+    
     let person=null;
     if(this.state.showpersons){
       person=<div>
