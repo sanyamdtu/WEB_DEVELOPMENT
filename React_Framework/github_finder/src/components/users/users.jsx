@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Spinner from "../layout/spinner";
 import Useritem from "./useritem";
-function users(props) {
+import Githubcontext from "../../context/github/github_context";
+function Users() {
+  const github_Context = useContext(Githubcontext);
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxx");
+  console.log(github_Context);
   let value;
-  if (props.loading) {
+  if (github_Context.loading) {
     value = (
       <div>
         <Spinner />
@@ -12,14 +16,14 @@ function users(props) {
   } else {
     value = (
       <div className="row">
-        {/* to render we needed to return it */}
-        {props.users.map((user) => (
-          <Useritem info={user} />
-        ))}
+        {console.log("rishita")}
+        {console.log(github_Context)}
+        {github_Context.users &&
+          github_Context.users.map((user) => <Useritem user={user} />)}
       </div>
     );
   }
   return value;
 }
 
-export default users;
+export default Users;
