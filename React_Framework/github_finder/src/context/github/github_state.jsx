@@ -54,7 +54,7 @@ const Githubstate = (props) => {
         clear,
       }}
     >
-      {props.children.props.children}
+      {props.children}
     </Github_context.Provider>
   );
 };
