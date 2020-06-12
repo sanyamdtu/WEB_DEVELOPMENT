@@ -7,11 +7,18 @@ function Navbar() {
         <i className="fas fa-address-book"></i>
         Conatct Holder
       </a>
-      <a className="nav-item">
-        <Link to="/about">About</Link>
-      </a>
+
+      <Link to="/about" className="nav-item">
+        About
+      </Link>
       <Link to="/" className="nav-item float-right">
         Home
+      </Link>
+      <Link to="/login" className="nav-item">
+        Login
+      </Link>
+      <Link to="/register" className="nav-item">
+        Register
       </Link>
     </nav>
   );
