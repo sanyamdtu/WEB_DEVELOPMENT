@@ -8,6 +8,7 @@ import Contact_state from "./Context/contacts/Contact_state";
 import Form from "./components/layouts/conrtact_form";
 import Auth_Context from "./Context/auth/auth_state";
 import Login_Form from "./components/login/form";
+import Alert_compomnent from "./components/layouts/alerts";
 import Register_form from "./components/register/register_form";
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
                   </div>
                 )}
               ></Route>
-              <Route exact path="/about" render={(props) => <About></About>} />
+              <Route exact path="/about" render={(props) => <About />} />
               <Route exact path="/login" render={(props) => <Login_Form />} />
               <Route
                 exact

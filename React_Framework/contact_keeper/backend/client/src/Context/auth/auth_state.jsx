@@ -1,5 +1,6 @@
 import Auth_Context from "./auth_context";
 import Auth_reducer from "./auth_reducer";
+import axios from "axios";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -22,6 +23,21 @@ const Auth_state = (props) => {
 
   const [state, dispatch] = useReducer(Auth_reducer, initial_state);
 
+  // REGISTER_SUCCESS
+  var register_user = async (form_data) => {
+    try {
+      var config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      var res = await axios.post("/api/users", form_data, config);
+      dispatch({ type: REGISTER_SUCCESS, payload: res.data.token });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Auth_Context.Provider
       value={{
@@ -30,6 +46,7 @@ const Auth_state = (props) => {
         error: state.error,
         loading: state.loading,
         isAuthenticated: state.isAuthenticated,
+        register_user,
       }}
     >
       {props.children}

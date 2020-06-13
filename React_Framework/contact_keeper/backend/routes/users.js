@@ -11,7 +11,7 @@ const { check, validationResult } = require("express-validator");
  */
 router.post(
   "/",
-  check("email", "eroor of username").isEmail(),
+  check("email", "error of username").isEmail(),
   check("name", "pleae add name")
     .not()
     .isEmpty(),
@@ -43,7 +43,7 @@ router.post(
         (err, token) => {
           if (err) console.error(err);
           console.log("works");
-          res.send(token);
+          res.json({ token: token });
         }
       );
     } catch {
