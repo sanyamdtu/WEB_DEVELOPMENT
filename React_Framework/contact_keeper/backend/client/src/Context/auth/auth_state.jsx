@@ -34,8 +34,17 @@ const Auth_state = (props) => {
       var res = await axios.post("/api/users", form_data, config);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data.token });
     } catch (error) {
-      console.log(error);
+      if (error.response.data.error) console.log(error.response.data.error.msg);
+      dispatch({
+        type: REGISTER_FAIL,
+        payload: error.response.data.error.msg,
+      });
     }
+  };
+  var clear_error = () => {
+    dispatch({
+      type: CLEAR_ERRORS,
+    });
   };
 
   return (
