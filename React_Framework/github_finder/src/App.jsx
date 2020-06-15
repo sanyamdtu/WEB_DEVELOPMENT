@@ -10,39 +10,6 @@ import Form from "./components/users/form";
 import Githubstate from "./context/github/github_state";
 
 var App = () => {
-  var [users, setusers] = useState([]),
-    [loading, setloading] = useState(false),
-    [Alert, setalert] = useState(""),
-    [user, setuser] = useState([]),
-    [repos, setrepos] = useState([]);
-  ///////////////////////////////////////
-  var search = async (text) => {
-    setloading(true);
-    let res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
-    );
-    setloading(false);
-    setusers(res.data.items);
-  };
-  var search_user = async (text) => {
-    setloading(true);
-    let res = await axios.get(
-      `https://api.github.com/users/${text}?client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
-    );
-    setloading(false);
-    setuser(res.data);
-    /* tslint:disable-next-line:variable-name */
-  };
-  var search_repo = async (text) => {
-    setloading(true);
-    let res = await axios.get(
-      `https://api.github.com/users/${text}/repos?client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
-    );
-    setloading(false);
-    setrepos(res.data);
-    /* tslint:disable-next-line:variable-name */
-  };
-
   var alert = (msg) => {
     setalert(msg);
     setTimeout(() => {
@@ -73,7 +40,6 @@ var App = () => {
                   </Fragment>
                 )}
               />
-              >
               <Route
                 exact
                 path="/about"
@@ -88,8 +54,6 @@ var App = () => {
                 render={(props) => (
                   <Fragment>
                     <More_info
-                      user={user}
-                      search={search_user}
                       {...props}
                       search_repo={search_repo}
                       repos={repos}

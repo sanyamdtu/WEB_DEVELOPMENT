@@ -24,7 +24,8 @@ router.post(
     }
     try {
       var { password, name, email } = req.body;
-      user = await User.findOne({ email });
+      var user = await User.findOne({ email });
+      console.log("popop");
       if (user) res.status(400).json({ error: { msg: "user already exist" } });
       var salt = await bcrypt.genSalt(10);
       password = await bcrypt.hash(password, salt);

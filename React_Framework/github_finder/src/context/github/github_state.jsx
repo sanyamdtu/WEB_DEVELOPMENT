@@ -26,18 +26,33 @@ const Githubstate = (props) => {
     let res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
     );
-    console.log("sanyam");
-    console.log(res);
-
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
-    console.log("rish");
-    console.log(initial_state.users);
   };
 
   //GETUSER
-
+  var search_user = async (text) => {
+    setloading();
+    let res = await axios.get(
+      `https://api.github.com/users/${text}?client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
+    );
+    dispatch({
+      type: GET_USER,
+      payload: res.data,
+    });
+    /* tslint:disable-next-line:variable-name */
+  };
   //GET REPOS
-
+  var search_repo = async (text) => {
+    setloading();
+    let res = await axios.get(
+      `https://api.github.com/users/${text}/repos?client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
+    );
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+    /* tslint:disable-next-line:variable-name */
+  };
   //clear users
   var clear = () => [dispatch({ type: CLEAR_USERS })];
   //setlaoding
@@ -52,6 +67,9 @@ const Githubstate = (props) => {
         repos: state.repos,
         search_users,
         clear,
+        search_user,
+        setloading,
+        search_repo,
       }}
     >
       {props.children}

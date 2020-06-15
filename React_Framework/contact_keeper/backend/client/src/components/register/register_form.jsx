@@ -2,15 +2,19 @@ import React from "react";
 import Auth_context from "../../Context/auth/auth_context";
 import { useContext } from "react";
 import { useState } from "react";
-function Register_Form() {
+import { useEffect } from "react";
+function Register_Form({ history }) {
   var auth_context = useContext(Auth_context);
-  var { register_user } = auth_context;
+  var { register_user, isAuthenticated } = auth_context;
   const [user, set_user] = useState({
     email: "",
     password: "",
     name: "",
     password2: "",
   });
+  useEffect(() => {
+    if (isAuthenticated) history.push("/");
+  }, [isAuthenticated, history]);
   var { email, password, password2, name } = user;
   var onchange = (e) => {
     set_user({

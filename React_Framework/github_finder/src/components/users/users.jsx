@@ -4,10 +4,9 @@ import Useritem from "./useritem";
 import Githubcontext from "../../context/github/github_context";
 function Users() {
   const github_Context = useContext(Githubcontext);
-  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxx");
-  console.log(github_Context);
+  var { users, loading } = github_Context;
   let value;
-  if (github_Context.loading) {
+  if (loading) {
     value = (
       <div>
         <Spinner />
@@ -16,10 +15,7 @@ function Users() {
   } else {
     value = (
       <div className="row">
-        {console.log("rishita")}
-        {console.log(github_Context)}
-        {github_Context.users &&
-          github_Context.users.map((user) => <Useritem user={user} />)}
+        {users && users.map((user) => <Useritem user={user} />)}
       </div>
     );
   }

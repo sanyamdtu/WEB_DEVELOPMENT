@@ -32,7 +32,7 @@ const Auth_state = (props) => {
         },
       };
       var res = await axios.post("/api/users", form_data, config);
-      dispatch({ type: REGISTER_SUCCESS, payload: res.data.token });
+      dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     } catch (error) {
       if (error.response.data.error) console.log(error.response.data.error.msg);
       dispatch({
@@ -40,13 +40,26 @@ const Auth_state = (props) => {
         payload: error.response.data.error.msg,
       });
     }
+    load_user();
   };
   var clear_error = () => {
     dispatch({
       type: CLEAR_ERRORS,
     });
   };
-
+  var load_user = async () => {
+    try {
+      let res = await axios.get("/api/auth");
+      dispatch({
+        type: USER_LOADED,
+        payload: res.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: AUTH_ERROR,
+      });
+    }
+  };
   return (
     <Auth_Context.Provider
       value={{
@@ -56,6 +69,7 @@ const Auth_state = (props) => {
         loading: state.loading,
         isAuthenticated: state.isAuthenticated,
         register_user,
+        load_user,
       }}
     >
       {props.children}
