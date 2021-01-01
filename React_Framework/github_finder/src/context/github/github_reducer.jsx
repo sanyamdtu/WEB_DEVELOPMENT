@@ -16,12 +16,14 @@ export default (action, state) => {
         users: action.payload,
         loading: false,
       };
-    case CLEAR_USERS:
-      return {
-        ...state,
-        users: [],
-        loading: false,
-      };
+    // case CLEAR_USERS:
+    //   return {
+    //     ...state,
+    //     users: [],
+    //     repos: {},
+    //     user: {},
+    //     loading: false,
+    //   };
     case GET_USER:
       return {
         ...state,
@@ -32,6 +34,12 @@ export default (action, state) => {
       return {
         ...state,
         loading: true,
+      };
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: action.payload,
+        loading: false,
       };
     default:
       return state;

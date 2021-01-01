@@ -26,6 +26,7 @@ const Githubstate = (props) => {
     let res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${process.env.R_github_c_id}&client_secret=${process.env.R_github_c_s}`
     );
+    console.log(res.data.items);
     dispatch({ type: SEARCH_USERS, payload: res.data.items });
   };
 
@@ -54,7 +55,7 @@ const Githubstate = (props) => {
     /* tslint:disable-next-line:variable-name */
   };
   //clear users
-  var clear = () => [dispatch({ type: CLEAR_USERS })];
+  var clear = () => dispatch({ type: CLEAR_USERS });
   //setlaoding
   const setloading = () => dispatch({ type: SET_LOADING });
 
